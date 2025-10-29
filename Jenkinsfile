@@ -1,10 +1,10 @@
 pipeline {
     agent any
     tools{
-        maven 'Maven3.9.11'
+        maven 'Maven3.9'
     }
     environment {
-        DOCKER_REPO = "kyipyar/spring-html"
+        DOCKER_REPO = "bph/spring-html"
         APP_JAR = "target\\HelloWarFile-0.0.1-SNAPSHOT.war"
         DOCKER_CREDENTIALS_ID = "dockerhub-credentials"
         DOCKER_HOST_PORT = "8081"
