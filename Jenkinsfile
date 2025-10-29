@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    tools{
+        maven 'Maven3.9.11'
+    }
     environment {
         DOCKER_REPO = "kyipyar/spring-html"
         APP_JAR = "target\\HelloWarFile-0.0.1-SNAPSHOT.war"
