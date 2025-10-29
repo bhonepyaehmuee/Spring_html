@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools{
-        maven "Maven3.9"
+        maven "maven3.9"
     }
     environment {
         DOCKER_REPO = "bph/spring-html"
