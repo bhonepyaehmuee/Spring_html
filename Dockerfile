@@ -1,4 +1,4 @@
-FROM openjdk:21
+FROM openjdk:17
 WORKDIR /app
 LABEL maintainer = "javaguides.net"
 ADD target/HelloWarFile-0.0.1-SNAPSHOT.war docker-springhtml.war
