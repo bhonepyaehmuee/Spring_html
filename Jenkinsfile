@@ -16,6 +16,12 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/bhonepyaehmuee/Spring_html.git'
             }
         }
+        stage('Test Docker') {
+            steps {
+                sh 'which docker || echo "Docker not installed"'
+            }
+        }
+
 
         stage('Build Jar') {
             steps {
