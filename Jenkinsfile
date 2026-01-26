@@ -48,7 +48,7 @@ pipeline {
             sh """
                 docker stop spring-html || true
                 docker rm spring-html || true
-                docker run -d --name spring-html --network jenkins-network -p 8081:8080 ${DOCKER_REPO}:${env.IMAGE_TAG}
+                docker run -d --name spring-html -p 8081:8080 ${DOCKER_REPO}:${env.IMAGE_TAG}
             """
         }
     }
