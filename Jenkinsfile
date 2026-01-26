@@ -23,7 +23,8 @@ pipeline {
         }
         stage('Test Docker') {
             steps {
-                sh 'which docker || echo "Docker not installed"'
+                sh 'docker --version'
+                // sh 'which docker || echo "Docker not installed"'
             }
         }
 
