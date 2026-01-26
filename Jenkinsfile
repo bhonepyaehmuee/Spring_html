@@ -46,8 +46,8 @@ pipeline {
         steps {
             echo "Running container locally (port 8082)..."
             sh """
-                docker stop spring-html  true
-                docker rm spring-html  true
+                docker stop spring-html || true
+                docker rm spring-html || true
                 docker run -d --name spring-html -p 8081:8080 ${DOCKER_REPO}:${env.IMAGE_TAG}
             """
         }
