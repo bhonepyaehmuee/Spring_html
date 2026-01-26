@@ -19,7 +19,7 @@ pipeline {
 
         stage('Build Jar') {
             steps {
-                bat 'mvn clean package -DskipTests'
+                sh 'mvn clean package -DskipTests'
             }
         }
 
@@ -28,8 +28,8 @@ pipeline {
                 script {
                     // Build Docker image and tag it with build number
                     def imageTag = "${env.BUILD_NUMBER}"
-                    bat "docker build -t ${DOCKER_REPO}:${imageTag} ."
-                    bat "docker tag ${DOCKER_REPO}:${imageTag} ${DOCKER_REPO}:latest"
+                    sh "docker build -t ${DOCKER_REPO}:${imageTag} ."
+                    sh "docker tag ${DOCKER_REPO}:${imageTag} ${DOCKER_REPO}:latest"
                     env.IMAGE_TAG = imageTag
                 }
             }
@@ -39,7 +39,7 @@ pipeline {
        stage('Run Docker Container') {
         steps {
             echo "Running container locally (port 8082)..."
-            bat """
+            sh """
                 docker stop spring-html  true
                 docker rm spring-html  true
                 docker run -d --name spring-html -p 8081:8080 ${DOCKER_REPO}:${env.IMAGE_TAG}
